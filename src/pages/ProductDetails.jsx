@@ -4,15 +4,36 @@ import { addToCart } from "../redux/cartSlice";
 import "./ProductDetails.css";
 
 const products = [
-  { id: 1, name: "Smart Phone", price: 12000, image: "/images/phone.jpg" },
-  { id: 2, name: "Laptop", price: 55000, image: "/images/laptop.jpg" },
-  { id: 3, name: "Headphones", price: 2500, image: "/images/headphone.jpg" },
-  { id: 4, name: "Bluetooth Speaker", price: 3500, image: "/images/speaker.jpg" },
-  { id: 5, name: "Smart Watch", price: 4000, image: "/images/watch.jpg" },
-  { id: 6, name: "Camera", price: 30000, image: "/images/camera.jpg" },
+  {
+    id: 1,
+    name: "Smart Phone",
+    price: 12000,
+    image: "/images/phone.jpg",
+    description:
+      "High quality smart phone with excellent camera, fast performance and long battery life.",
+    category: "Electronics",
+  },
+  {
+    id: 2,
+    name: "Laptop",
+    price: 55000,
+    image: "/images/laptop.jpg",
+    description:
+      "Powerful laptop suitable for work, study and entertainment.",
+    category: "Electronics",
+  },
+  {
+    id: 3,
+    name: "Headphones",
+    price: 2500,
+    image: "/images/headphone.jpg",
+    description:
+      "Noise cancelling headphones with premium sound quality.",
+    category: "Accessories",
+  },
 ];
 
-function ProductDetails() {
+export default function ProductDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -24,18 +45,56 @@ function ProductDetails() {
 
   return (
     <div className="product-details">
-      <img src={product.image} alt={product.name} />
+      <div className="details-container">
+        {/* Image Section */}
+        <div className="details-image">
+          <img src={product.image} alt={product.name} />
+        </div>
 
-      <div className="details-info">
-        <h1>{product.name}</h1>
-        <p className="price">₹ {product.price}</p>
+        {/* Info Section */}
+        <div className="details-info">
+          <h2>{product.name}</h2>
+          <p className="rating">⭐⭐⭐⭐☆ (120 reviews)</p>
+          <p className="price">₹ {product.price}</p>
 
-        <button onClick={() => dispatch(addToCart(product))}>
-          Add to Cart
-        </button>
+          <p className="description">{product.description}</p>
+
+          <div className="options">
+            <label>Quantity:</label>
+            <input type="number" min="1" defaultValue="1" />
+          </div>
+
+          <div className="details-actions">
+            <button
+              className="add-cart"
+              onClick={() => dispatch(addToCart(product))}
+            >
+              🛒 Add to Cart
+            </button>
+
+            <button className="wishlist">❤️ Add to Wishlist</button>
+          </div>
+
+          <p className="category">
+            <strong>Category:</strong> {product.category}
+          </p>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="details-tabs">
+        <h3>Description</h3>
+        <p>
+          This product is designed with premium materials and provides the best
+          user experience. Suitable for daily use with long durability.
+        </p>
+
+        <h3>Shipping & Returns</h3>
+        <p>Free delivery within 5–7 working days. Easy 7-day return policy.</p>
+
+        <h3>Reviews</h3>
+        <p>⭐ ⭐ ⭐ ⭐ ☆ (120 customer reviews)</p>
       </div>
     </div>
   );
 }
-
-export default ProductDetails;
