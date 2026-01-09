@@ -28,10 +28,9 @@ export default function Products() {
             <p className="price">₹ {p.price}</p>
 
             <div className="product-actions">
-              <Link to={`/product/${p.id}`} className="details-btn">
-                View Details
+              <Link to={`/products/${p.id}`} className="details-btn">
+               View Details
               </Link>
-
               <button
                 className="wishlist-btn"
                 onClick={() => dispatch(addToWishlist(p))}
