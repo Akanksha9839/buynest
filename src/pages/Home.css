@@ -15,3 +15,11 @@ h1 {
     font-size: 24px;
   }
 }
+.home {
+  min-height: 60vh;        /* screen ke beech me lane ke liye */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  text-align: center;
+}
