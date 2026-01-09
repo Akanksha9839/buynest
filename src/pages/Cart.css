@@ -1,0 +1,59 @@
+.cart-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+.cart-container h2 {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.cart-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.cart-info {
+  flex: 1;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.qty-controls button {
+  padding: 4px 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.empty-cart {
+  text-align: center;
+  margin-top: 50px;
+}
